@@ -16,11 +16,11 @@ if User.count == 0
 end
 
 if Booking.all.length == 0
-    Booking.create(user_id: 2, appointment_time: "2022-10-26 08:00", doctor_id: "hardeep")
-    Booking.create(user_id: 3,appointment_time: "2022-10-26 09:00", doctor_id: "hardeep")
-    Booking.create(user_id: 3,appointment_time: "2022-10-27 10:00", doctor_id: "hardeep")
-    Booking.create(user_id: 2,appointment_time: "2022-10-27 12:00", doctor_id: "hardeep")
-    Booking.create(user_id: 2,appointment_time: "2022-10-26 08:00", doctor_id: "leith")
-    Booking.create(user_id: 3,appointment_time: "2022-10-27 01:00", doctor_id: "leith")
-    Booking.create(user_id: 3,appointment_time: "2022-10-27 08:00", doctor_id: "leith")
+    Booking.create(user_id: 4, appointment_time: "2022-10-26 08:00", doctor_id: "hardeep")
+    Booking.create(user_id: 4,appointment_time: "2022-10-26 09:00", doctor_id: "hardeep")
+    Booking.create(user_id: 4,appointment_time: "2022-10-27 10:00", doctor_id: "hardeep")
+    Booking.create(user_id: 4,appointment_time: "2022-10-27 12:00", doctor_id: "hardeep")
+    Booking.create(user_id: 5,appointment_time: "2022-10-26 08:00", doctor_id: "leith")
+    Booking.create(user_id: 5,appointment_time: "2022-10-27 01:00", doctor_id: "leith")
+    Booking.create(user_id: 5,appointment_time: "2022-10-27 08:00", doctor_id: "leith")
 end
