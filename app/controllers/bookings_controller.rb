@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-    before_action : set_booking, only: [:show, :update, :destroy]
+    before_action :set_booking, only: [:show, :update, :destroy]
     
     def index
         @booking = Booking.all
@@ -31,7 +31,8 @@ class BookingsController < ApplicationController
     def destroy
         @booking.delete
         render json: 204
-
+    end
+    
     private
     def booking_params
         params.require(:booking).permit(:appointment_time, :doctor_id)
