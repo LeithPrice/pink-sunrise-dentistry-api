@@ -3,8 +3,8 @@ class UsersController < ApplicationController
     before_action :find_user, except: [:create, :index]
 
     def index
-        @user = User.all
-        render json: @user, status: :ok
+        @users = User.all
+        render json: @users, status: :ok
     end
 
     def show
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             token = JsonWebToken.encode(user_id: @user.id)
             render json: {username: @user.username, token: token}, status: :created
         else
-            render json: {errors: @user.errors.full_messages}, status: :unprocessable_entity
+            render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
@@ -36,12 +36,12 @@ class UsersController < ApplicationController
     def find_user
         @user = User.find_by_username!(params[:username])
     rescue ActiveRecord::RecordNotFound
-        render json: {errors: 'User not found'}, status: :not_found
+        render json: { errors: 'User not found'}, status: :not_found
     end
 
     def user_params
         params.permit(
-            :name, :username, :user_type, :email, :password_confirmation
+            :name, :username, :email, :user_type, :password, :password_confirmation
         )
     end
 end

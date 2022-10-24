@@ -3,12 +3,12 @@ class BookingsController < ApplicationController
     before_action :set_booking, only: [:show, :update, :destroy]
     
     def index
-        @booking = @current_user.booking.all
-        render json: @booking
+        @bookings = @current_user.bookings.all
+        render json: @bookings
     end
 
     def create
-        @booking = @current_user.booking.create(booking_params)
+        @booking = @current_user.bookings.create(booking_params)
         if @booking.errors.any?
             render json: @booking.errors, status: :unprocessible_entity
         else
