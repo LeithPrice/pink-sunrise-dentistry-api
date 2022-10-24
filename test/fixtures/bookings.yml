@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appointment_time: 2022-10-24 10:13:35
+  doctor_id: MyText
+
+two:
+  appointment_time: 2022-10-24 10:13:35
+  doctor_id: MyText
