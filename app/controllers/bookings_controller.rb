@@ -1,13 +1,14 @@
 class BookingsController < ApplicationController
+    before_action :authorize_request
     before_action :set_booking, only: [:show, :update, :destroy]
     
     def index
-        @booking = Booking.all
+        @booking = @current_user.booking.all
         render json: @booking
     end
 
     def create
-        @booking = Booking.create(booking_params)
+        @booking = @current_user.booking.create(booking_params)
         if @booking.errors.any?
             render json: @booking.errors, status: :unprocessible_entity
         else
@@ -32,7 +33,7 @@ class BookingsController < ApplicationController
         @booking.delete
         render json: 204
     end
-    
+
     private
     def booking_params
         params.require(:booking).permit(:appointment_time, :doctor_id)
