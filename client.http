@@ -1,5 +1,4 @@
-@token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NjY2NzU0MTJ9.M7SAYIDRCRDcKa5HMVIHIMFPKDfZ3UY9osm9yFk-qFM"
-
+@token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NjY4NTI4Nzd9.HUhucvCR2qz3hMW3WsdFNrEeN_Y986h5S0yI-s8-E8s"
 
 ### Get bookings
 GET http://localhost:3000/api/bookings
@@ -41,7 +40,7 @@ Authorization: "{{token}}"
 
 
 ### Successfully delete a prediction
-DELETE http://localhost:3000/api/bookings/2
+DELETE http://localhost:3000/api/bookings/3
 Authorization: "{{token}}"
 
 
@@ -49,4 +48,20 @@ Authorization: "{{token}}"
 DELETE http://localhost:3000/api/bookings/999
 Authorization: "{{token}}"
 
+### Successfully create a prediction
+POST http://localhost:3000/api/bookings
+Authorization: "{{token}}"
+Content-Type: application/json
 
+{
+    "appointment_time": "2022-10-30 10:00",
+    "doctor_id": "Leith"
+}
+
+### Get a user from ID
+GET http://localhost:3000/api/users/1
+Authorization: "{{token}}"
+
+### Get bookings
+GET http://localhost:3000/api/bookings
+Authorization: "{{token}}"
