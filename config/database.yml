@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: pink_sunrise_dentistry_api_production
   username: pink_sunrise_dentistry_api
   password: <%= ENV['PINK_SUNRISE_DENTISTRY_API_DATABASE_PASSWORD'] %>
