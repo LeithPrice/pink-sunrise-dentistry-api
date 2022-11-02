@@ -5,7 +5,7 @@ class DoctorsController < ApplicationController
       @doctors = Doctor.all
   
       if params[:keyword] && params[:keyword] != ""
-        @doctors = @pdoctors.where("title ILIKE ?", "%#{params[:keyword]}%")      
+        @doctors = @doctors.where("title ILIKE ?", "%#{params[:keyword]}%")      
       end
           
       render json: @doctors
@@ -41,7 +41,7 @@ class DoctorsController < ApplicationController
     private
   
     def doctor_params
-      params.permit(:name, :user_id)
+      params.permit(:name, :doctor_id)
     end
   
     def set_doctor

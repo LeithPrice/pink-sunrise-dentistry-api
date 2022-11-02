@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_065951) do
+ActiveRecord::Schema.define(version: 2022_11_02_111651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,19 +19,19 @@ ActiveRecord::Schema.define(version: 2022_11_02_065951) do
     t.datetime "start_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.datetime "end_date"
     t.bigint "doctor_id", null: false
+    t.bigint "patient_id", null: false
     t.index ["doctor_id"], name: "index_bookings_on_doctor_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["patient_id"], name: "index_bookings_on_patient_id"
   end
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_doctors_on_user_id"
+    t.bigint "doctor_id", null: false
+    t.index ["doctor_id"], name: "index_doctors_on_doctor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_065951) do
     t.boolean "admin", default: false
   end
 
-  add_foreign_key "bookings", "doctors"
-  add_foreign_key "bookings", "users"
-  add_foreign_key "doctors", "users"
+  add_foreign_key "bookings", "users", column: "doctor_id"
+  add_foreign_key "bookings", "users", column: "patient_id"
+  add_foreign_key "doctors", "users", column: "doctor_id"
 end
