@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   scope '/api' do
     resources :users, param: :username
+    get '/doctors', to: 'doctors#index'
     get '/bookings', to: 'bookings#index'
     post '/bookings', to: 'bookings#create'
     get '/bookings/:id', to: 'bookings#show'
