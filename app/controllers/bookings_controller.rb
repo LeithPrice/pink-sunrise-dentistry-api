@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     end
 
     def show
-        render json: @booking.transform_booking
+        render json: @booking
     end
 
     def update
