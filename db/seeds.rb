@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-if Doctor.count == 0
-    Doctor.create(name: "Dr Singh", doctor_id: 2)
-    Doctor.create(name: "Dr Price", doctor_id: 3)
-end
+# if Doctor.count == 0
+#     Doctor.create(name: "Dr Singh", doctor_id: 2)
+#     Doctor.create(name: "Dr Price", doctor_id: 3)
+# end
 
 
 if User.count == 0
