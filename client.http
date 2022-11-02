@@ -39,16 +39,16 @@ GET http://localhost:3000/api/users
 Authorization: "{{token}}"
 
 
-### Successfully delete a prediction
-DELETE http://localhost:3000/api/bookings/4
+### Successfully delete a booking
+DELETE http://localhost:3000/api/bookings/6
 Authorization: "{{token}}"
 
 
-### Not found - delete a prediction that does not exist
+### Not found - delete a booking that does not exist
 DELETE http://localhost:3000/api/bookings/999
 Authorization: "{{token}}"
 
-### Successfully create a prediction
+### Successfully create a booking
 POST http://localhost:3000/api/bookings
 Authorization: "{{token}}"
 Content-Type: application/json
