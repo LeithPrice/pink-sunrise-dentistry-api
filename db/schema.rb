@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_111651) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "end_date"
-    t.bigint "doctor_id", null: false
+    t.bigint "doctor_id"
     t.bigint "patient_id", null: false
     t.index ["doctor_id"], name: "index_bookings_on_doctor_id"
     t.index ["patient_id"], name: "index_bookings_on_patient_id"
