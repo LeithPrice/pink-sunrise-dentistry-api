@@ -21,11 +21,11 @@ if User.count == 0
 end
 
 if Booking.all.length == 0
-    Booking.create(user_id: 4,start_time: "2022-10-26 08:00",end_time: "2022-10-26 09:00", doctor_id: 1)
-    Booking.create(user_id: 4,start_time: "2022-10-26 09:00",end_time: "2022-10-26 10:00", doctor_id: 1)
-    Booking.create(user_id: 4,start_time: "2022-10-27 10:00",end_time: "2022-10-27 11:00", doctor_id: 1)
-    Booking.create(user_id: 4,start_time: "2022-10-27 12:00",end_time: "2022-10-27 13:00", doctor_id: 1)
-    Booking.create(user_id: 5,start_time: "2022-10-26 08:00",end_time: "2022-10-26 09:00", doctor_id: 2)
-    Booking.create(user_id: 5,start_time: "2022-10-27 13:00",end_time: "2022-10-27 14:00", doctor_id: 2)
-    Booking.create(user_id: 5,start_time: "2022-10-27 08:00",end_time: "2022-10-27 09:00", doctor_id: 2)
+    Booking.create(user_id: 4,start_date: "2022-10-26 08:00",end_date: "2022-10-26 09:00", doctor_id: 1)
+    Booking.create(user_id: 4,start_date: "2022-10-26 09:00",end_date: "2022-10-26 10:00", doctor_id: 1)
+    Booking.create(user_id: 4,start_date: "2022-10-27 10:00",end_date: "2022-10-27 11:00", doctor_id: 1)
+    Booking.create(user_id: 4,start_date: "2022-10-27 12:00",end_date: "2022-10-27 13:00", doctor_id: 1)
+    Booking.create(user_id: 5,start_date: "2022-10-26 08:00",end_date: "2022-10-26 09:00", doctor_id: 2)
+    Booking.create(user_id: 5,start_date: "2022-10-27 13:00",end_date: "2022-10-27 14:00", doctor_id: 2)
+    Booking.create(user_id: 5,start_date: "2022-10-27 08:00",end_date: "2022-10-27 09:00", doctor_id: 2)
 end
