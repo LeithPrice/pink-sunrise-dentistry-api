@@ -1,4 +1,4 @@
-@token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2Njc0NzYyNDN9.PcIC-1_Janxfz5Yxu0U7jG_69QZOG8Hkl9bsBDz_Yn8"
+@token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2Njc5NjY4MDR9.huVe4Cb-9NjLaotSQ514tljRzicw008W-LODzEIv8ek"
 
 ### Get bookings
 GET http://localhost:3000/api/bookings
@@ -21,7 +21,6 @@ Content-Type: application/json
     "name": "Jonas",
     "username": "jonas",
     "email": "jonas@test.com",
-    "user_type": "patient",
     "password": "password",
     "password_confirmation": "password"
 }
@@ -31,7 +30,7 @@ GET http://localhost:3000/api/users
 
 
 ### Get a user
-GET http://localhost:3000/api/users/hardeep
+GET http://localhost:3000/api/users/janet
 Authorization: "{{token}}"
 
 ### Get all users
@@ -40,7 +39,7 @@ Authorization: "{{token}}"
 
 
 ### Successfully delete a booking
-DELETE http://localhost:3000/api/bookings/6
+DELETE http://localhost:3000/api/bookings/2
 Authorization: "{{token}}"
 
 
@@ -54,16 +53,36 @@ Authorization: "{{token}}"
 Content-Type: application/json
 
 {
-    "patient_id": 6,
-    "start_date": "2022-11-26 08:00",
-    "end_date": "2022-11-26 09:00", 
-    "doctor_id": "Dr Singh",   
+    "user_id": 4,
+    "atend_id":  4,
+    "doctor_id": 2, 
+    "label": "11:30am",   
+    "hour": 11,
+    "minutes": 30,
+    "booked" : false
 }
 
 ### Get a user from ID
-GET http://localhost:3000/api/users/1
+GET http://localhost:3000/api/users/2
 Authorization: "{{token}}"
 
 ### Get bookings
-GET http://localhost:3000/api/bookings
+GET http://localhost:3000/api/bookings/4
 Authorization: "{{token}}"
+
+### Get doctors
+GET http://localhost:3000/api/doctors
+Authorization: "{{token}}"
+
+### Get bookings 5
+GET http://localhost:3000/api/bookings/6
+Authorization: "{{token}}"
+
+### Successfully update a booking
+PUT http://localhost:3000/api/bookings/3
+Content-Type: application/json
+Authorization: "{{token}}"
+
+{
+    "label": "11:50pm"
+}

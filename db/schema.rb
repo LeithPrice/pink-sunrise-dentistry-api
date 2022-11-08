@@ -10,28 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_111651) do
+ActiveRecord::Schema.define(version: 2022_11_07_234623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bookings", force: :cascade do |t|
-    t.datetime "start_date"
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "doctor_id", null: false
+    t.date "date"
+    t.time "time"
+    t.float "duration"
+    t.boolean "confirmed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "end_date"
-    t.bigint "doctor_id"
-    t.bigint "patient_id"
+    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "atends", force: :cascade do |t|
+    t.date "date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "label"
+    t.integer "hour"
+    t.integer "minutes"
+    t.boolean "booked"
+    t.bigint "doctor_id", null: false
+    t.bigint "user_id"
+    t.bigint "atend_id", null: false
+    t.index ["atend_id"], name: "index_bookings_on_atend_id"
     t.index ["doctor_id"], name: "index_bookings_on_doctor_id"
-    t.index ["patient_id"], name: "index_bookings_on_patient_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "doctor_id"
-    t.index ["doctor_id"], name: "index_doctors_on_doctor_id"
+    t.string "docname"
+    t.index ["docname"], name: "index_doctors_on_docname", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,11 +64,11 @@ ActiveRecord::Schema.define(version: 2022_11_02_111651) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "doctor", default: false
-    t.boolean "admin", default: false
   end
 
-  add_foreign_key "bookings", "users", column: "doctor_id"
-  add_foreign_key "bookings", "users", column: "patient_id"
-  add_foreign_key "doctors", "users", column: "doctor_id"
+  add_foreign_key "appointments", "doctors"
+  add_foreign_key "appointments", "users"
+  add_foreign_key "bookings", "atends"
+  add_foreign_key "bookings", "doctors"
+  add_foreign_key "bookings", "users"
 end
