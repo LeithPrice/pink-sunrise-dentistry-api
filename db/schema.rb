@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_08_050851) do
+ActiveRecord::Schema.define(version: 2022_11_07_234623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2022_11_08_050851) do
     t.integer "minutes"
     t.boolean "booked"
     t.bigint "doctor_id"
-    t.bigint "atend_id"
     t.bigint "user_id"
+    t.bigint "atend_id"
     t.index ["atend_id"], name: "index_bookings_on_atend_id"
     t.index ["doctor_id"], name: "index_bookings_on_doctor_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
