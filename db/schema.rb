@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2022_11_07_234623) do
     t.integer "hour"
     t.integer "minutes"
     t.boolean "booked"
-    t.bigint "doctor_id", null: false
+    t.bigint "doctor_id"
     t.bigint "user_id"
-    t.bigint "atend_id", null: false
+    t.bigint "atend_id"
     t.index ["atend_id"], name: "index_bookings_on_atend_id"
     t.index ["doctor_id"], name: "index_bookings_on_doctor_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
