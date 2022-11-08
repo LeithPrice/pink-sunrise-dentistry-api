@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_07_234623) do
+ActiveRecord::Schema.define(version: 2022_11_08_050851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,10 @@ ActiveRecord::Schema.define(version: 2022_11_07_234623) do
     t.boolean "booked"
     t.bigint "doctor_id"
     t.bigint "atend_id"
+    t.bigint "user_id"
     t.index ["atend_id"], name: "index_bookings_on_atend_id"
     t.index ["doctor_id"], name: "index_bookings_on_doctor_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "doctors", force: :cascade do |t|
@@ -68,4 +70,5 @@ ActiveRecord::Schema.define(version: 2022_11_07_234623) do
   add_foreign_key "appointments", "users"
   add_foreign_key "bookings", "atends"
   add_foreign_key "bookings", "doctors"
+  add_foreign_key "bookings", "users"
 end
