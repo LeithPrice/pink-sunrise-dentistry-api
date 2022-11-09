@@ -27,7 +27,7 @@ Rails.application.routes.draw do
         resources :booking, only: [:index, :update]
       end
     get '/doctors', to: 'doctors#index'
-    get '/atends', to: 'atends#index'
+    get '/atend', to: 'atend#index'
     get '/bookings', to: 'bookings#index'
     post '/bookings', to: 'bookings#create'
     get '/bookings/:id', to: 'bookings#show'
