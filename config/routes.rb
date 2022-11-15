@@ -14,21 +14,45 @@ Rails.application.routes.draw do
   #   end
   # end
   
+  # scope '/api' do
+  #   resources :users, param: :username
+  #   resources :user, only: [:show] 
+  #     resources :user, only: [:index] do
+  #       resources :booking, only: [:index]
+  #     end
+  #     resources :specialization, only: [:show, :index]
+  #     resources :atend, only: [:index]
+  #     resources :doctor, only: [:show, :index] do
+  #       resources :appointment, only: [:index, :show]
+  #       resources :booking, only: [:index, :update]
+  #     end
+  #   get '/doctors', to: 'doctors#index'
+  #   get '/atend', to: 'atend#index'
+  #   get '/bookings', to: 'bookings#index'
+  #   post '/bookings', to: 'bookings#create'
+  #   get '/bookings/:id', to: 'bookings#show'
+  #   put '/bookings/:id', to: 'bookings#update'
+  #   delete '/bookings/:id', to: 'bookings#destroy'
+  #   scope '/auth' do
+  #     post '/login', to: 'authentication#login'
+  #   end
+  # end
+
   scope '/api' do
     resources :users, param: :username
-    resources :user, only: [:show] 
-      resources :user, only: [:index] do
-        resources :booking, only: [:index]
+    resources :users, param: :username, only: [:show] 
+      resources :users, param: :username, only: [:index] do
+        resources :bookings, only: [:index]
       end
-      resources :specialization, only: [:show, :index]
       resources :atend, only: [:index]
-      resources :doctor, only: [:show, :index] do
+      resources :doctors, only: [:show, :index] do
         resources :appointment, only: [:index, :show]
-        resources :booking, only: [:index, :update]
+        resources :bookings, only: [:index, :update]
       end
-    get '/doctors', to: 'doctors#index'
-    get '/atend', to: 'atend#index'
-    get '/bookings', to: 'bookings#index'
+    get '/doctors/;id/bookings', to: 'bookings#index'
+    put '/doctors/:id/bookings', to: 'bookings#update'
+    # post '/doctors/:id/bookings', to: 'bookings#create'
+    get '/bookings', to: 'bookings#show'
     post '/bookings', to: 'bookings#create'
     get '/bookings/:id', to: 'bookings#show'
     put '/bookings/:id', to: 'bookings#update'
@@ -37,8 +61,6 @@ Rails.application.routes.draw do
       post '/login', to: 'authentication#login'
     end
   end
-
-
 
 
 end
