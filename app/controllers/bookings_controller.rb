@@ -88,18 +88,18 @@ def show
     render json: @booking
 end
 
-# def create
-#             if params[:doctor_id]
-#                 @booking = @current_user.bookings.create(booking_params)
-#                 if @booking.errors.any?
-#                 render json: @booking.errors, status: :unprocessable_entity
-#                 else
-#                 render json: @booking, status: 201
-#                 end
-#             else
-#                 render json: @booking, status: 201
-#             end
-# end
+def create
+            if params[:doctor_id]
+                @booking = @current_user.bookings.create(booking_params)
+                if @booking.errors.any?
+                render json: @booking.errors, status: :unprocessable_entity
+                else
+                render json: @booking, status: 201
+                end
+            else
+                render json: @booking, status: 201
+            end
+end
 
  def show
     render json: @booking

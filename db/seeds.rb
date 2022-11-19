@@ -21,14 +21,14 @@ if User.count == 0
 end
 
 
-Atend.create(date: Time.now() + 1.day)
-Atend.create(date: Time.now() + 2.day)
-Atend.create(date: Time.now() + 3.day)
-Atend.create(date: Time.now() + 4.day)
-Atend.create(date: Time.now() + 5.day)
-Atend.create(date: Time.now() + 6.day)
-Atend.create(date: Time.now() + 7.day)
-Atend.create(date: Time.now() + 8.day)
+  Atend.create(date: Time.now() + 1.day)
+  Atend.create(date: Time.now() + 2.day)
+  Atend.create(date: Time.now() + 3.day)
+  Atend.create(date: Time.now() + 4.day)
+  Atend.create(date: Time.now() + 5.day)
+  Atend.create(date: Time.now() + 6.day)
+  Atend.create(date: Time.now() + 7.day)
+  Atend.create(date: Time.now() + 8.day)
 
 
 
