@@ -1,65 +1,4 @@
 class BookingsController < ApplicationController
-#     before_action :authorize_request
-#     before_action :set_booking, only: [:show, :update, :destroy]
-#     before_action :booking_params, only: %i[create]
-
-#     def index
-
-#         if params[:doctor]
-#             puts "Searching for #{params[:doctor]}"
-#             @bookings = @current_user.bookings.find_by_category(params[:doctor])
-#             if @bookings.count == 0
-#                 return render json: {error: "No booking of that doctor"}, status: 404
-#             end
-#         else
-#             @bookings = @current_user.bookings.all
-#         end
-#         render json: @bookings
-#     end
-
-#     def create
-#         @booking = @current_user.bookings.create(booking_params)
-#         if @booking.errors.any?
-#             render json: @booking.errors, status: :unprocessable_entity
-#         else
-#             render json: @booking, status: 201
-#         end
-#     end
-
-#     def show
-#         render json: @booking
-#     end
-
-#     def update
-#         @booking.update(booking_params)
-#         if @booking.errors.any?
-#             render json: @booking.errors, status: :unprocessable_entity
-#         else
-#             render json: @booking, status: 201
-#         end
-#     end
-
-#     def destroy
-#         @booking.delete
-#         render json: 204
-#     end
-
-#     private
-#     def booking_params
-#         params.require(:booking).permit(:label, :user_id, :atend_id, :doctor_id, :hour, :minutes, :booked)
-#     end
-
-#     def set_booking
-#         begin
-#         @booking = Booking.find(params[:id])
-#         rescue
-#             render json: {error: "booking not found"}, status: 404
-#         end
-#     end
-# end
-
-
-
 before_action :authorize_request, except: :index
 before_action :set_bookings, only: %i[index]
 before_action :booking_params, only: %i[create]
@@ -91,6 +30,8 @@ end
 def create
             if params[:doctor_id]
                 @booking = @current_user.bookings.create(booking_params)
+                # BookingsMailer.current_customer(@current_user).deliver_now
+                BookingsMailer.booking_confirmation(@booking, @current_user).deliver_now
                 if @booking.errors.any?
                 render json: @booking.errors, status: :unprocessable_entity
                 else
