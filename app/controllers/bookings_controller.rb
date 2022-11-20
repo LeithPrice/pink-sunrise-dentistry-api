@@ -31,7 +31,7 @@ def create
             if params[:doctor_id]
                 @booking = @current_user.bookings.create(booking_params)
                 
-                # BookingsMailer.booking_confirmation(@booking, @current_user).deliver_now
+                BookingsMailer.booking_confirmation(@booking, @current_user).deliver_now
                 if @booking.errors.any?
                 render json: @booking.errors, status: :unprocessable_entity
                 else
