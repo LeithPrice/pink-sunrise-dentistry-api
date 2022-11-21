@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 before_action :authorize_request, except: :index
-before_action :set_bookings, only: %i[index]
+before_action :set_bookings, only: %i[index, destroy]
 before_action :booking_params, only: %i[create]
 
 def index
@@ -63,6 +63,11 @@ def show
   booking = Booking.where(user_id: @current_user.id)
   render json: { success: true,
                  booking: booking.as_json }
+end
+
+def destroy
+  @booking.delete
+  render json: 204
 end
 
 private
