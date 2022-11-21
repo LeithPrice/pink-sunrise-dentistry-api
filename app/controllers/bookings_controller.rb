@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
 before_action :authorize_request, except: :index
-before_action :set_bookings, only: %i[index, destroy]
+before_action :set_bookings, only: %i[index]
 before_action :booking_params, only: %i[create]
+before_action :set_booking_delete, only: %i[destroy]
 
 def index
   if params[:doctor_id]
@@ -85,4 +86,11 @@ def booking_params
         end
 end
 
+def set_booking_delete
+    begin
+    @bookings = Booking.find(params[:id])
+    rescue
+        render json: {error: "Prediction not found"}, status: 404
+    end
+end
 
