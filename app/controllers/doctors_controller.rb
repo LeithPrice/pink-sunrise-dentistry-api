@@ -1,5 +1,6 @@
 class DoctorsController < ApplicationController
   before_action :set_doctor, only: %i[show]
+  before_action :set_bookings, only: %i[bookings]
 
   def index
     render json: Doctor.select(
@@ -12,9 +13,7 @@ class DoctorsController < ApplicationController
   end
 
   def bookings
-    render json: Booking.select(
-      :id, :label, :hour, :minutes, :atend_id
-    ).all
+    render json: @bookings
   end
 
   private
@@ -24,4 +23,13 @@ class DoctorsController < ApplicationController
       :id, :docname, :name
     ).find(params[:id])
   end
+
+
+def set_bookings
+  @bookings = if params[:id]
+                Booking.where(doctor_id: params[:id], booked: false)
+              else
+                Booking.where(user_id: @current_user.id)
+              end
+end
 end

@@ -66,7 +66,7 @@ def show
 end
 
 def destroy
-  @booking.delete
+  @bookings.delete
   render json: 204
 end
 
