@@ -1,4 +1,4 @@
-@token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Njg5NDg2MTZ9.A4NVA0TKtSulzgVLPZX71I2NhXLJZ0MTF5iz-7MGqeE"
+@token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjkxMTgzNDd9.QFwgF4Rq2Q0-mbiJHtHLbFktmJBuN7qVIdPnfHWFvaI"
 
 
 ### Login with user
@@ -71,7 +71,7 @@ Authorization: "{{token}}"
 }
 
 ### Get search booking for doctor 2
-GET http://localhost:3000/api/doctors/1/bookings
+GET http://localhost:3000/api/doctors/2/bookings
 Authorization: "{{token}}"
 
 ### Successfully UPDATE a booking with doctor and atend in url

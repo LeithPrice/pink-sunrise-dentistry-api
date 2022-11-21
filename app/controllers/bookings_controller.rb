@@ -42,9 +42,9 @@ def create
             end
 end
 
- def show
-    render json: @booking
-end
+#  def show
+#     render json: @booking
+# end
 
 
 

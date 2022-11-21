@@ -11,6 +11,12 @@ class DoctorsController < ApplicationController
     render json: @doctor
   end
 
+  def bookings
+    render json: Booking.select(
+      :id, :label, :hour, :minutes, :atend_id
+    ).all
+  end
+
   private
 
   def set_doctor
