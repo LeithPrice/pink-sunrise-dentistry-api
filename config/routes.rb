@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   scope '/api' do
     resources :users, param: :username
     resources :users, param: :username, only: [:show] 
-      resources :users, param: :username, only: [:index] do
-        resources :bookings, only: [:index]
-      end
+      # resources :users, param: :username, only: [:index] do
+      #   resources :bookings, only: [:index]
+      # end
       # resources :atend, only: [:index]
       # resources :doctors, only: [ :show, :index,:bookings] do
         # resources :appointment, only: [:index, :show]

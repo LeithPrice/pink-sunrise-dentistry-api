@@ -10,7 +10,7 @@ def index
       {
         success: true,
         booking: @bookings.as_json(
-          only: %i[id label hour minutes atend_id]
+          only: %i[id date label hour minutes atend_id]
         )
       }
   else
@@ -18,7 +18,7 @@ def index
       {
         success: true,
         booking: @bookings.as_json(
-          only: %i[id label hour minutes doctor_id atend_id]
+          only: %i[id date label hour minutes doctor_id atend_id]
         )
       }
   end
@@ -82,7 +82,7 @@ def set_bookings
 end
 
 def booking_params
-            params.require(:booking).permit(:label, :user_id, :atend_id, :doctor_id, :hour, :minutes, :booked)
+            params.require(:booking).permit(:label, :user_id, :atend_id, :doctor_id, :hour, :minutes, :booked, :date)
         end
 end
 
