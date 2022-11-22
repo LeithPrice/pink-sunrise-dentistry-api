@@ -71,7 +71,7 @@ Authorization: "{{token}}"
 }
 
 ### Get search booking for doctor 2
-GET http://localhost:3000/api/doctors/2/bookings
+GET http://localhost:3000/api/doctors/1/bookings
 Authorization: "{{token}}"
 
 ### Successfully UPDATE a booking with doctor and atend in url

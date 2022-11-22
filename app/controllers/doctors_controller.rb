@@ -13,6 +13,7 @@ class DoctorsController < ApplicationController
   end
 
   def bookings
+    pp @bookings
     render json: @bookings
   end
 
@@ -27,7 +28,7 @@ class DoctorsController < ApplicationController
 
 def set_bookings
   @bookings = if params[:id]
-                Booking.where(doctor_id: params[:id], booked: false)
+                Booking.where(doctor_id: params[:id], booked: true)
               else
                 Booking.where(user_id: @current_user.id)
               end
