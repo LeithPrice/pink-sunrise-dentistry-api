@@ -6,11 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# if Doctor.count == 0
-#     Doctor.create(name: "Dr Singh", doctor_id: 2)
-#     Doctor.create(name: "Dr Price", doctor_id: 3)
-# end
-
+# below are all the preloaded data for the database that is seeded in if you ever do a rails db:seed
 
 if User.count == 0
     User.create(username: "admin", name: "Admin", email: "admin@psdentistry.com", password: "password", password_confirmation: "password")
@@ -29,8 +25,6 @@ end
   Atend.create(date: Time.now() + 6.day)
   Atend.create(date: Time.now() + 7.day)
   Atend.create(date: Time.now() + 8.day)
-
-
 
 
 if Doctor.count == 0

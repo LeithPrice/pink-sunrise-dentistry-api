@@ -1,5 +1,6 @@
 class BookingsMailer < ApplicationMailer
 
+  # this method determines the params  and then actions the email being sent
   def booking_confirmation(booking, current_user)
     @booking = booking
     @customer = current_user

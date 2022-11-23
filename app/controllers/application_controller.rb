@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
 
+# Method to be called to authorize any api requests throw the controller
+
     def authorize_request
         header = request.headers['Authorization']
         header = header.split(' ').last if header

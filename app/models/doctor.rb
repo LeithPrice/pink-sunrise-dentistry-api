@@ -1,5 +1,5 @@
 class Doctor < ApplicationRecord
-  # belongs_to :users
+  # this determines the relationship between tables in the database
   has_many :appointments, dependent: :destroy
   has_many :patients, through: :appointments, source: 'user'
 
