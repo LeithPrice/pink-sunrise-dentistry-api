@@ -4,10 +4,11 @@ class BookingsMailer < ApplicationMailer
   def booking_confirmation(booking, current_user)
     @booking = booking
     @customer = current_user
-    @doctor = booking.doctor_id
+    @doctorid = booking.doctor_id
     @time = booking.label
-    @date = booking.atend_id
-    
+    @date = booking.date
+    @doctor = Doctor.find(@doctorid)
+
 
     mail to: @customer.email, subject: "Booking confirmation
     for Pink Sunrise Dentistry"
