@@ -41,12 +41,6 @@ In order to set up the local Database enter the following
 
 ```rails db:migrate```
 
-Finally, run the test suite to verify that everything is working correctly:
-
-```rspec```
-
-If everything tests ok, please enter the following
-
 ```rails db:seed```
 
 And finally in order to run the server type

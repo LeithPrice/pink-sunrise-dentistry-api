@@ -16,16 +16,3 @@ end
 
 
 
-#   describe "GET bookings" do
-    
-#       let(:user) { FactoryBot.create(:user, username: 'steve', email: 'steve', password: 'password', password_confirmation: 'password')}
-#       let(:token_new) { JsonWebToken.encode(user_id: user.id) }
-#       let(:token) do
-#         {  "Authorization" => "Bearer #{token_new}"  }
-#     end
-#     it "returns all bookings!" do
-#       get bookings_path, params: { headers: token}
-#       expect(response).to have_http_status(200)
-#     end
-#   end
-# end
