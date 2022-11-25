@@ -18,7 +18,7 @@ end
 
 if Atend.count == 0
     x = 1
-    while x > 60
+    while x < 60
       Atend.create(date: Time.now() + x.day)
       x = x + 1
     end
