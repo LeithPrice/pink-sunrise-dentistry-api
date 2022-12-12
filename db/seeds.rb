@@ -23,13 +23,13 @@ end
 #       x = x + 1
 #     end
 # end
-  Atend.create(date: Time.now() + 2.day)
-  Atend.create(date: Time.now() + 3.day)
-  Atend.create(date: Time.now() + 4.day)
-  Atend.create(date: Time.now() + 5.day)
-  Atend.create(date: Time.now() + 6.day)
-  Atend.create(date: Time.now() + 7.day)
-  Atend.create(date: Time.now() + 8.day)
+#  Atend.create(date: Time.now() + 2.day)
+#   Atend.create(date: Time.now() + 3.day)
+#   Atend.create(date: Time.now() + 4.day)
+#   Atend.create(date: Time.now() + 5.day)
+#   Atend.create(date: Time.now() + 6.day)
+#   Atend.create(date: Time.now() + 7.day)
+#   Atend.create(date: Time.now() + 8.day) 
 
 
 if Doctor.count == 0

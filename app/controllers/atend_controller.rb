@@ -14,6 +14,11 @@ class AtendController < ApplicationController
   
     # this methis sets the variable @atends 
     def set_atends
+           x = 1
+          while x < 182
+            Atend.create(date: Time.now() + x.day)
+            x = x + 1
+          end
       @atends = Atend.where('date >= :tomorrow', tomorrow: Time.now + 1.day)
     end
 end
