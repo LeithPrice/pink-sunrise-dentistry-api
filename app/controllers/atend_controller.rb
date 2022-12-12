@@ -15,7 +15,7 @@ class AtendController < ApplicationController
     # this methis sets the variable @atends 
     def set_atends
            x = 1
-          while x < 182
+          while x < 60
             Atend.create(date: Time.now() + x.day)
             x = x + 1
           end
